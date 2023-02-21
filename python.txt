@@ -1,0 +1,57 @@
+MORSE_CODE_DICT = {
+    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+    'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+    'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+    'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+    'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---',
+    '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+    '8': '---..', '9': '----.', ',': '--..--', '.': '.-.-.-', '?': '..--..',
+    '/': '-..-.', '-': '-....-', '(': '-.--.', ')': '-.--.-', ' ': '/'
+}
+
+
+def text_to_morse(text):
+    morse_code = []
+    for char in text:
+        if char.upper() in MORSE_CODE_DICT:
+            morse_code.append(MORSE_CODE_DICT[char.upper()])
+    return ' '.join(morse_code)
+
+
+def morse_to_text(morse_code):
+    text = ''
+    for code in morse_code.split(' '):
+        for char, code_value in MORSE_CODE_DICT.items():
+            if code == code_value:
+                text += char
+    return text
+
+
+while True:
+    choice = input("Enter 'morse' to translate from Morse code to text, or 'text' to translate from text to Morse code, or 'quit' to exit: ")
+    if choice == 'morse':
+        while True:
+            morse_code = input("Enter Morse code: ")
+            text = morse_to_text(morse_code)
+            if text:
+                print(text)
+                break
+            else:
+                print("Invalid Morse code. Please try again.")
+    elif choice == 'text':
+        while True:
+            text = input("Enter text: ")
+            morse_code = text_to_morse(text)
+            if morse_code:
+                print(morse_code)
+                break
+            else:
+                print("Invalid text. Please try again.")
+    elif choice == 'quit':
+        break
+    else:
+        print("Invalid choice, please enter either 'morse', 'text', or 'quit'.")
+
+    check_again = input("Do you want to check the code? (y/n)")
+    if check_again.lower() == 'n':
+        break
