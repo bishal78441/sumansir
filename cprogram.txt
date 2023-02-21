@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+
+printf("                      welcome to Mr. Lock System ^_^");
+  int i;
+  char password[100];              //here we define password arrays
+  char generated_password[100];
+  int password_length;
+  int FakeInput;
+
+  printf("\n\nInput the length of the password you want to create:");
+  scanf("%d", &password_length);
+  for (i=0; i<password_length; i++)
+  {
+      password[i] = rand() % 95 + 32;
+  }
+   password[password_length] = '\0';
+    printf("Generated password: %s\n", password);
+
+
+  printf("\n\nPlease enter your password here....:");
+  scanf("%s", &generated_password);
+
+if (strcmp(generated_password, password) == 0)
+ {
+     printf("                   The password is correct:)\n");
+     printf("                   HELLO MY CLOSE MATE:)\n");
+
+ }
+ else
+ {
+    printf("          The password you have entered is incorrect -_-");
+    printf("\n                    you still have two times            ");
+    printf("\n                        Try Again....                    ");
+    printf("\n\n          Please enter your password here....:");
+    scanf("%s", &generated_password);
+
+
+ if (strcmp(generated_password, password) == 0)
+ {
+     printf("                   The password is correct:)");
+     printf("\n                   HELLO MY CLOSE MATE:)");
+
+ }
+ else
+ {
+    printf("          The password you have entered is incorrect -_-");
+    printf("\n                    you still have one times            ");
+    printf("\n                        Try Again....                    ");
+    printf("\n\n       Please enter your password here....:");
+    scanf("%s", &generated_password);
+
+
+ if (strcmp(generated_password, password) == 0)
+ {
+     printf("\n                   The password is correct:)");
+     printf("\n                   HELLO MY CLOSE MATE:)");
+
+ }
+ else
+ {
+printf("\n                                 WRONG!!!-_-");
+printf("\n                                 WRONG!!!-_-");
+printf("\n                                 WRONG!!!-_-");
+printf("\n                                 WRONG!!!-_-");
+printf("\n                                 WRONG!!!-_-");
+printf("\n                                 WRONG!!!-_-");
+printf("\n                                 WRONG!!!-_-");
+printf("\n                                 WRONG!!!-_-");
+
+    scanf("%d", &FakeInput);
+    return 0;
+ }
+ }
+ }
+ }
